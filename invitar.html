@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Te invitaron a Comporta</title>
+<meta name="description" content="Cumple tus metas donde tus amigos te ven.">
+<meta property="og:title" content="Te invitaron a Comporta">
+<meta property="og:description" content="Cumple tus metas donde tus amigos te ven.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .botones{display:flex;flex-direction:column;gap:10px;margin:26px 0 8px;max-width:380px}
+  .boton{display:block;text-align:center;text-decoration:none;font-weight:650;font-size:16px;
+         padding:14px 20px;border-radius:999px}
+  .boton.lleno{background:var(--olive);color:var(--bg)}
+  .boton.contorno{border:1px solid var(--line);color:var(--olive)}
+  .boton[hidden]{display:none}
+  .nota{color:var(--mut);font-size:14.5px;max-width:52ch}
+  ol{margin:0;padding-left:20px;max-width:64ch}
+  ol li{margin-bottom:7px}
+  .usuario{font-weight:750}
+</style>
+</head><body>
+<div class="wrap">
+
+<div class="eyebrow">Comporta</div>
+<h1 id="titulo">Te invitaron a Comporta</h1>
+<p class="lede">Publicas la foto que prueba que cumpliste tu meta y tus amigos la ven. Sin likes de desconocidos ni feed infinito: tus amigos y lo que dijiste que ibas a hacer.</p>
+
+<div class="botones">
+  <a class="boton lleno" id="bajar" href="#">Bajar Comporta</a>
+  <a class="boton contorno" id="abrir" href="comporta://agregar">Ya la tengo: abrir</a>
+</div>
+<p class="nota" id="sin-tienda" hidden>Comporta todavía no está en la App Store. Guarda este mensaje: cuando la bajes, vas a necesitar el nombre de quien te invitó.</p>
+
+<div class="card">
+  <h3>Cómo se agregan</h3>
+  <ol>
+    <li>Baja Comporta y crea tu cuenta.</li>
+    <li>En el paso de amigos, busca a <span class="usuario quien">quien te invitó</span> y tócalo en <strong>Agregar</strong>.</li>
+    <li>Cuando acepte, se ven cumplir los dos.</li>
+  </ol>
+</div>
+
+<footer>
+  Comporta · <a href="index.html">Qué es</a> · <a href="privacidad.html">Privacidad</a> · <a href="soporte.html">Soporte</a>
+</footer>
+
+</div>
+<script>
+  // La dirección de la App Store. Vacía hasta que Comporta esté publicada:
+  // mientras tanto el botón no se muestra, y la nota dice qué hacer.
+  var TIENDA = "";
+
+  // El @usuario llega en ?de=. Se limpia igual que en la app
+  // (Invitacion.usuarioLimpio): sin arroba, en minúsculas y sin espacios.
+  // Se escribe con textContent, nunca como HTML.
+  function usuarioLimpio(texto) {
+    if (!texto) return null;
+    var limpio = texto.trim().replace(/^@+/, "").toLowerCase();
+    if (!limpio || limpio.length > 64 || /\s/.test(limpio)) return null;
+    return limpio;
+  }
+
+  var usuario = usuarioLimpio(new URLSearchParams(location.search).get("de"));
+
+  if (usuario) {
+    var arroba = "@" + usuario;
+    document.title = arroba + " te invitó a Comporta";
+    var titulo = document.getElementById("titulo");
+    titulo.textContent = "";
+    var nombre = document.createElement("span");
+    nombre.className = "usuario";
+    nombre.textContent = arroba;
+    titulo.appendChild(nombre);
+    titulo.appendChild(document.createTextNode(" te invitó a Comporta"));
+    document.querySelectorAll(".quien").forEach(function (el) { el.textContent = arroba; });
+    document.getElementById("abrir").href = "comporta://agregar?de=" + encodeURIComponent(usuario);
+  }
+
+  if (TIENDA) {
+    document.getElementById("bajar").href = TIENDA;
+  } else {
+    // Sin tienda, abrir es lo único que se puede hacer: pasa a ser el botón lleno.
+    document.getElementById("bajar").hidden = true;
+    document.getElementById("abrir").className = "boton lleno";
+    document.getElementById("sin-tienda").hidden = false;
+  }
+</script>
+</body></html>
