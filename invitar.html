@@ -34,10 +34,16 @@
 
 <div class="card">
   <h3>Cómo se agregan</h3>
-  <ol>
+  <ol id="pasos">
     <li>Baja Comporta y crea tu cuenta.</li>
     <li>En el paso de amigos, busca a <span class="usuario quien">quien te invitó</span> y tócalo en <strong>Agregar</strong>.</li>
     <li>Cuando acepte, se ven cumplir los dos.</li>
+  </ol>
+  <!-- Con código (?c=, issue #59): quedan amigos sin que nadie tenga que aceptar. -->
+  <ol id="pasos-con-codigo" hidden>
+    <li>Baja Comporta y crea tu cuenta.</li>
+    <li>Vuelve a este mensaje y toca <strong>Ya la tengo: abrir</strong>.</li>
+    <li>Toca <strong>Ser amigos</strong>: quedan amigos al tiro y se ven cumplir los dos.</li>
   </ol>
 </div>
 
@@ -61,7 +67,17 @@
     return limpio;
   }
 
-  var usuario = usuarioLimpio(new URLSearchParams(location.search).get("de"));
+  // El código llega en ?c=: 22 caracteres de base64url, como lo hace la base
+  // (Invitacion.codigoLimpio). Uno con otra forma no viaja a la app.
+  function codigoLimpio(texto) {
+    if (!texto) return null;
+    var limpio = texto.trim();
+    return /^[A-Za-z0-9_-]{22}$/.test(limpio) ? limpio : null;
+  }
+
+  var parametros = new URLSearchParams(location.search);
+  var usuario = usuarioLimpio(parametros.get("de"));
+  var codigo = usuario ? codigoLimpio(parametros.get("c")) : null;
 
   if (usuario) {
     var arroba = "@" + usuario;
@@ -74,7 +90,15 @@
     titulo.appendChild(nombre);
     titulo.appendChild(document.createTextNode(" te invitó a Comporta"));
     document.querySelectorAll(".quien").forEach(function (el) { el.textContent = arroba; });
-    document.getElementById("abrir").href = "comporta://agregar?de=" + encodeURIComponent(usuario);
+    document.getElementById("abrir").href = "comporta://agregar?de=" + encodeURIComponent(usuario)
+      + (codigo ? "&c=" + codigo : "");
+  }
+
+  if (codigo) {
+    document.getElementById("pasos").hidden = true;
+    document.getElementById("pasos-con-codigo").hidden = false;
+    document.getElementById("sin-tienda").textContent =
+      "Comporta todavía no está en la App Store. Guarda este mensaje: cuando la bajes, vuelve acá y toca «Ya la tengo: abrir».";
   }
 
   if (TIENDA) {
