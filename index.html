@@ -1,34 +1,314 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Comporta</title>
-<link rel="stylesheet" href="estilo.css">
-</head><body>
-<div class="wrap">
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comporta: un día a la vez</title>
+<meta name="description" content="Elige una meta, cúmplela y sube una foto. Tus amigos la ven, te aplauden y tu racha suma un día. Gratis, para iPhone.">
+<meta name="theme-color" content="#0E0E0D">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="Comporta: un día a la vez">
+<meta property="og:description" content="Elige una meta, cúmplela y sube una foto. Tus amigos la ven y tu racha suma un día.">
+<meta property="og:image" content="https://maximiliano-ergas.github.io/comporta-web/img/icono-1024.png">
+<link rel="icon" href="img/porton.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/icono-180.png">
+<link rel="stylesheet" href="portada.css">
+</head>
+<body>
 
-<div class="eyebrow">Comporta</div>
-<h1>Cumple tus metas donde tus amigos te ven</h1>
-<p class="lede">Publicas la foto que prueba que cumpliste y ellos la ven. No hay likes de desconocidos, no hay publicidad, no hay feed infinito: están tus amigos y está lo que dijiste que ibas a hacer.</p>
+<!-- El portón del logo: los barrotes son los palotes de la semana y la línea de abajo es el umbral. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="porton" stroke-linecap="round">
+      <line x1="228" y1="712" x2="796" y2="712" stroke="#5F6B33" stroke-width="14"/>
+      <line x1="244" y1="686" x2="244" y2="428" stroke="#A8B56B" stroke-width="22"/>
+      <line x1="780" y1="686" x2="780" y2="428" stroke="#A8B56B" stroke-width="22"/>
+      <circle cx="244" cy="398" r="15" fill="#EEF0E0"/>
+      <circle cx="780" cy="398" r="15" fill="#EEF0E0"/>
+      <line x1="268" y1="560" x2="502" y2="560" stroke="#A8B56B" stroke-width="10"/>
+      <line x1="522" y1="560" x2="756" y2="560" stroke="#A8B56B" stroke-width="10"/>
+      <line x1="268" y1="650" x2="502" y2="650" stroke="#A8B56B" stroke-width="10"/>
+      <line x1="522" y1="650" x2="756" y2="650" stroke="#A8B56B" stroke-width="10"/>
+      <line x1="300" y1="686" x2="300" y2="462" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="354" y1="686" x2="354" y2="440" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="408" y1="686" x2="408" y2="412" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="462" y1="686" x2="462" y2="378" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="502" y1="686" x2="502" y2="334" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="724" y1="686" x2="724" y2="462" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="670" y1="686" x2="670" y2="440" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="616" y1="686" x2="616" y2="412" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="562" y1="686" x2="562" y2="378" stroke="#A8B56B" stroke-width="15"/>
+      <line x1="522" y1="686" x2="522" y2="334" stroke="#A8B56B" stroke-width="15"/>
+      <g fill="#EEF0E0">
+        <polygon points="300,428 308,450 300,472 292,450"/>
+        <polygon points="354,406 362,428 354,450 346,428"/>
+        <polygon points="408,378 416,400 408,422 400,400"/>
+        <polygon points="462,344 470,366 462,388 454,366"/>
+        <polygon points="724,428 732,450 724,472 716,450"/>
+        <polygon points="670,406 678,428 670,450 662,428"/>
+        <polygon points="616,378 624,400 616,422 608,400"/>
+        <polygon points="562,344 570,366 562,388 554,366"/>
+        <polygon points="502,282 512,312 502,342 492,312"/>
+        <polygon points="522,282 532,312 522,342 512,312"/>
+      </g>
+    </g>
+    <symbol id="libro" viewBox="0 0 24 24"><path d="M12 6.6C10 5.1 7 4.6 3.5 5.1v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5v-13C17 4.6 14 5.1 12 6.6zM12 6.6v13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="pesa" viewBox="0 0 24 24"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="visto" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
 
-<section>
-  <h2>Cómo funciona</h2>
-  <ul>
-    <li><strong>Pones una meta</strong> y los días en que toca cumplirla.</li>
-    <li><strong>Subes la foto</strong> que lo prueba. Solo tus amigos aceptados la ven.</li>
-    <li><strong>La racha corre</strong> mientras cumplas, y se corta cuando no.</li>
-    <li><strong>Anotas tu rutina</strong>: ejercicios, series, pesos y repeticiones.</li>
-  </ul>
-</section>
+<header class="barra">
+  <div class="barra-dentro">
+    <a class="marca" href="./" aria-label="Comporta, inicio">
+      <svg class="marca-porton" viewBox="214 268 596 464" aria-hidden="true"><use href="#porton"/></svg>
+      <span class="marca-palabra">Comporta</span>
+    </a>
+    <nav class="barra-nav" aria-label="Principal">
+      <a href="#como">Cómo funciona</a>
+      <a href="#amigos">Amigos</a>
+      <a href="#oli">Oli</a>
+    </nav>
+  </div>
+</header>
 
-<section>
-  <h2>Enlaces</h2>
-  <ul>
-    <li><a href="privacidad.html">Política de privacidad</a></li>
-    <li><a href="soporte.html">Soporte</a></li>
-  </ul>
-</section>
+<main>
 
-<footer>
-  Comporta · Maximiliano Ergas · <a href="mailto:maxiergas12@gmail.com">maxiergas12@gmail.com</a>
+  <section class="heroe">
+    <div class="heroe-texto">
+      <h1 class="heroe-titulo">Un día<br>a la vez.</h1>
+      <p class="heroe-bajada">Elige una meta, cúmplela y sube una foto. Tus amigos la ven, te aplauden y tu racha suma un día.</p>
+      <div class="acciones">
+        <a class="tienda" data-tienda aria-disabled="true">
+          <span class="tienda-arriba" data-tienda-arriba>Muy pronto en la</span>
+          <span class="tienda-abajo">App Store</span>
+        </a>
+        <a class="enlace" href="#como">Ver cómo funciona</a>
+      </div>
+      <p class="nota">Gratis, para iPhone.</p>
+    </div>
+
+    <div class="heroe-telefono">
+      <div class="telefono" data-demo role="img" aria-label="La pantalla Mis rachas de Comporta. Al publicar la foto de hoy, la racha de Lectura pasa de 4 a 5 días y María aplaude.">
+        <div class="pantalla" aria-hidden="true">
+          <div class="p-estado">
+            <span>9:41</span>
+            <span class="p-isla"></span>
+            <span class="p-iconos">
+              <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+              <svg viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="22" height="11" rx="3.5" fill="none" stroke="currentColor" opacity=".45"/><rect x="2.5" y="2.5" width="16" height="7" rx="2"/><rect x="24" y="4" width="1.6" height="4" rx=".8" opacity=".45"/></svg>
+            </span>
+          </div>
+
+          <div class="p-aviso">
+            <img src="img/porton.svg" alt="">
+            <div>
+              <b>María A. aplaudió tu foto</b>
+              <span>Lectura, hoy. Ya van 5 días.</span>
+            </div>
+            <span class="p-aviso-hora">ahora</span>
+          </div>
+
+          <div class="p-cabecera">
+            <span class="p-cabecera-lado">Cerrar</span>
+            <b>Mis rachas</b>
+            <span class="p-cabecera-lado p-mas">+</span>
+          </div>
+
+          <div class="p-tarjeta p-oli">
+            <img src="img/oli-etapa-2.png" alt="">
+            <div>
+              <b>Etapa 2 · Toma ritmo</b>
+              <span>Te faltan 18 días para la etapa Se fortalece.</span>
+              <i class="p-progreso"><i></i></i>
+            </div>
+          </div>
+
+          <div class="p-tarjeta p-racha">
+            <div class="p-racha-cabeza">
+              <svg class="p-icono"><use href="#libro"/></svg>
+              <b>Lectura</b>
+              <span class="p-punto"><span class="antes">Falta hoy</span><span class="despues">Cumplida</span></span>
+            </div>
+            <div class="p-racha-cuerpo">
+              <div class="p-cifra">
+                <span class="p-cifra-ventana"><span class="p-cifra-rollo"><span>4</span><span>5</span></span></span>
+                <small>días</small>
+              </div>
+              <svg class="p-semana" viewBox="0 0 154 66">
+                <g class="p-palotes">
+                  <line x1="14" y1="8" x2="8" y2="44"/>
+                  <line x1="36" y1="8" x2="30" y2="44"/>
+                  <line x1="58" y1="8" x2="52" y2="44"/>
+                  <line x1="80" y1="8" x2="74" y2="44"/>
+                  <line class="p-hoy-pendiente" x1="102" y1="8" x2="96" y2="44"/>
+                  <line class="p-hoy" x1="102" y1="8" x2="96" y2="44" pathLength="1"/>
+                </g>
+                <g class="p-dias">
+                  <text x="11" y="62">L</text><text x="33" y="62">M</text><text x="55" y="62">X</text><text x="77" y="62">J</text><text class="p-dia-hoy" x="99" y="62">V</text><text x="121" y="62">S</text><text x="143" y="62">D</text>
+                </g>
+              </svg>
+            </div>
+            <div class="p-datos">
+              <div><small>Mejor racha</small><b>12 días</b></div>
+              <div><small>Última</small><b><span class="antes">Ayer, 21:24</span><span class="despues">Hoy, 9:41</span></b></div>
+              <div><small>Esta semana</small><b><span class="antes">4 de 7</span><span class="despues">5 de 7</span></b></div>
+            </div>
+            <div class="p-boton"><span class="antes">Publicar y cumplir hoy</span><span class="despues"><svg><use href="#visto"/></svg>Cumplida hoy</span></div>
+          </div>
+
+          <div class="p-tarjeta p-racha">
+            <div class="p-racha-cabeza">
+              <svg class="p-icono"><use href="#pesa"/></svg>
+              <b>Entrenamiento</b>
+              <span class="p-punto p-punto-listo">Cumplida</span>
+            </div>
+            <div class="p-racha-cuerpo">
+              <div class="p-cifra"><span>9</span><small>días</small></div>
+              <svg class="p-semana" viewBox="0 0 154 66">
+                <g class="p-palotes">
+                  <line x1="14" y1="8" x2="8" y2="44"/>
+                  <line x1="36" y1="8" x2="30" y2="44"/>
+                  <line x1="58" y1="8" x2="52" y2="44"/>
+                  <line x1="80" y1="8" x2="74" y2="44"/>
+                  <line x1="102" y1="8" x2="96" y2="44"/>
+                </g>
+                <g class="p-dias">
+                  <text x="11" y="62">L</text><text x="33" y="62">M</text><text x="55" y="62">X</text><text x="77" y="62">J</text><text class="p-dia-hoy" x="99" y="62">V</text><text x="121" y="62">S</text><text x="143" y="62">D</text>
+                </g>
+              </svg>
+            </div>
+            <div class="p-datos">
+              <div><small>Mejor racha</small><b>21 días</b></div>
+              <div><small>Última</small><b>Hoy, 7:05</b></div>
+              <div><small>Esta semana</small><b>5 de 7</b></div>
+            </div>
+          </div>
+
+          <b class="p-resumen">Resumen</b>
+          <div class="p-tarjeta p-grafico">
+            <small>Cumplimiento, 12 semanas</small>
+            <div class="p-barras"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:45%"></i><i style="--h:60%"></i><i style="--h:57%"></i><i style="--h:71%"></i><i style="--h:66%"></i><i style="--h:78%"></i><i style="--h:74%"></i><i style="--h:86%"></i><i style="--h:83%"></i><i style="--h:71%"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion como" id="como">
+    <h2 class="titulo">Así funciona.</h2>
+    <ol class="pasos">
+      <li class="paso">
+        <div class="paso-visual">
+          <div class="metas" aria-hidden="true">
+            <span class="meta">Entrenamiento<i></i></span>
+            <span class="meta meta-elegida">Lectura<i><svg><use href="#visto"/></svg></i></span>
+            <span class="meta">Correr<i></i></span>
+            <span class="meta">Meditación<i></i></span>
+          </div>
+        </div>
+        <span class="paso-n" aria-hidden="true">1</span>
+        <h3>Elige una meta</h3>
+        <p>Algo simple: leer, entrenar, correr, meditar. Con una basta para empezar.</p>
+      </li>
+      <li class="paso">
+        <div class="paso-visual">
+          <figure class="foto" aria-hidden="true">
+            <div class="foto-quien"><span class="mono mono-terracota">CA</span><b>Carlos A.</b><span>Correr</span></div>
+            <div class="foto-imagen"><img src="img/oli-celebra.png" alt="" loading="lazy"><span class="foto-dia">Día 5</span></div>
+            <div class="foto-pie"><span class="foto-aplauso">👏 3</span><span>María y 2 más</span></div>
+          </figure>
+        </div>
+        <span class="paso-n" aria-hidden="true">2</span>
+        <h3>Cúmplela y sube una foto</h3>
+        <p>La foto es la prueba. Cada día con foto suma a tu racha.</p>
+      </li>
+      <li class="paso">
+        <div class="paso-visual">
+          <div class="semana-falla" aria-hidden="true">
+            <svg class="semana-grande" viewBox="0 0 154 66">
+              <g class="palotes-grandes">
+                <line x1="14" y1="8" x2="8" y2="44"/>
+                <line x1="36" y1="8" x2="30" y2="44"/>
+                <line x1="80" y1="8" x2="74" y2="44"/>
+                <line x1="102" y1="8" x2="96" y2="44"/>
+                <line x1="124" y1="8" x2="118" y2="44"/>
+              </g>
+              <circle class="hueco" cx="55" cy="26" r="2.2"/>
+              <g class="p-dias">
+                <text x="11" y="62">L</text><text x="33" y="62">M</text><text class="dia-falla" x="55" y="62">X</text><text x="77" y="62">J</text><text x="99" y="62">V</text><text x="121" y="62">S</text><text x="143" y="62">D</text>
+              </g>
+            </svg>
+            <img src="img/oli-descansa.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <span class="paso-n" aria-hidden="true">3</span>
+        <h3>¿Fallaste un día?</h3>
+        <p>No pasa nada. Vuelve al día siguiente: tu mejor racha queda guardada.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="seccion amigos" id="amigos">
+    <div class="amigos-texto">
+      <h2 class="titulo">Comporta es con amigos.</h2>
+      <p class="parrafo">Tus amigos ven tu foto cuando cumples y te aplauden. Sin likes de desconocidos, sin publicidad y sin feed infinito.</p>
+      <div class="cinco">
+        <svg viewBox="0 0 120 56" aria-hidden="true">
+          <line x1="14" y1="6" x2="8" y2="50"/><line x1="34" y1="6" x2="28" y2="50"/><line x1="54" y1="6" x2="48" y2="50"/><line x1="74" y1="6" x2="68" y2="50"/><line x1="94" y1="6" x2="88" y2="50"/>
+        </svg>
+        <p>Agrega a cinco que te conozcan de verdad.</p>
+      </div>
+    </div>
+    <ul class="actividad" aria-label="Ejemplo de lo que ves de tus amigos">
+      <li><span class="mono mono-pizarra" aria-hidden="true">MA</span><div><b>María A.</b><span>cumplió Entrenamiento</span></div><time>hace 2 h</time><span class="aplausos">👏 4</span></li>
+      <li><span class="mono mono-terracota" aria-hidden="true">CA</span><div><b>Carlos A.</b><span>cumplió Correr</span></div><time>hace 3 h</time><span class="aplausos">👏 2</span></li>
+      <li><span class="mono mono-musgo" aria-hidden="true">SB</span><div><b>Sofía B.</b><span>cumplió Lectura</span></div><time>hace 5 h</time><span class="aplausos">👏 6</span></li>
+      <li><span class="mono mono-ocre" aria-hidden="true">LR</span><div><b>Luis R.</b><span>cumplió Madrugada</span></div><time>ayer</time><span class="aplausos">👏 3</span></li>
+    </ul>
+  </section>
+
+  <section class="seccion oli" id="oli">
+    <div class="oli-texto">
+      <h2 class="titulo">Oli crece con tu racha.</h2>
+      <p class="parrafo">Tu mejor racha decide su etapa. Si un día fallas, Oli no retrocede.</p>
+    </div>
+    <ol class="etapas">
+      <li class="etapa etapa-1"><img src="img/oli-etapa-1.png" alt="" loading="lazy"><b>Empieza</b><span>Día 1</span></li>
+      <li class="etapa etapa-2"><img src="img/oli-etapa-2.png" alt="" loading="lazy"><b>Toma ritmo</b><span>7 días seguidos</span></li>
+      <li class="etapa etapa-3"><img src="img/oli-etapa-3.png" alt="" loading="lazy"><b>Se fortalece</b><span>30 días seguidos</span></li>
+    </ol>
+  </section>
+
+  <section class="seccion final">
+    <img class="final-oli" src="img/oli-recibe.png" alt="Oli, la mascota de Comporta, con los brazos abiertos" loading="lazy">
+    <h2 class="titulo">Tu racha empieza hoy.</h2>
+    <p class="parrafo" data-final-nota>Comporta llega pronto a la App Store. Es gratis y es para iPhone.</p>
+    <a class="tienda" data-tienda aria-disabled="true">
+      <span class="tienda-arriba" data-tienda-arriba>Muy pronto en la</span>
+      <span class="tienda-abajo">App Store</span>
+    </a>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="pie-dentro">
+    <a class="marca marca-chica" href="./" aria-label="Comporta, inicio">
+      <svg class="marca-porton" viewBox="214 268 596 464" aria-hidden="true"><use href="#porton"/></svg>
+      <span class="marca-palabra">Comporta</span>
+    </a>
+    <nav class="pie-nav" aria-label="Legal y contacto">
+      <a href="privacidad.html">Privacidad</a>
+      <a href="soporte.html">Soporte</a>
+      <a href="mailto:maxiergas12@gmail.com">Escríbenos</a>
+    </nav>
+    <p class="pie-firma">© 2026 Maximiliano Ergas</p>
+  </div>
 </footer>
 
-</div></body></html>
+<script src="portada.js"></script>
+</body>
+</html>

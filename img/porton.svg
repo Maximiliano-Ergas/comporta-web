@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- Variante compacta del portón (tres barrotes por hoja), la misma del icono a 60 px y menos. -->
+  <rect width="1024" height="1024" rx="224" fill="#181812"/>
+  <g stroke-linecap="round">
+    <line x1="222" y1="716" x2="802" y2="716" stroke="#5F6B33" stroke-width="22"/>
+    <line x1="242" y1="682" x2="242" y2="410" stroke="#A8B56B" stroke-width="30"/>
+    <line x1="782" y1="682" x2="782" y2="410" stroke="#A8B56B" stroke-width="30"/>
+    <line x1="266" y1="588" x2="500" y2="588" stroke="#A8B56B" stroke-width="18"/>
+    <line x1="524" y1="588" x2="758" y2="588" stroke="#A8B56B" stroke-width="18"/>
+    <line x1="340" y1="682" x2="340" y2="462" stroke="#A8B56B" stroke-width="24"/>
+    <line x1="428" y1="682" x2="428" y2="404" stroke="#A8B56B" stroke-width="24"/>
+    <line x1="684" y1="682" x2="684" y2="462" stroke="#A8B56B" stroke-width="24"/>
+    <line x1="596" y1="682" x2="596" y2="404" stroke="#A8B56B" stroke-width="24"/>
+    <line x1="500" y1="682" x2="500" y2="330" stroke="#A8B56B" stroke-width="24"/>
+    <line x1="524" y1="682" x2="524" y2="330" stroke="#A8B56B" stroke-width="24"/>
+  </g>
+  <g fill="#EEF0E0">
+    <circle cx="242" cy="378" r="21"/>
+    <circle cx="782" cy="378" r="21"/>
+    <polygon points="340,404 353,436 340,468 327,436"/>
+    <polygon points="428,346 441,378 428,410 415,378"/>
+    <polygon points="684,404 697,436 684,468 671,436"/>
+    <polygon points="596,346 609,378 596,410 583,378"/>
+    <polygon points="500,266 515,300 500,336 485,300"/>
+    <polygon points="524,266 539,300 524,336 509,300"/>
+  </g>
+</svg>

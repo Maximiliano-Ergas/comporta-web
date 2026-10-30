@@ -1,0 +1,420 @@
+/* La portada. Las demás páginas siguen con estilo.css.
+   Los colores son los de DesignSystem.swift en modo oscuro: la portada se ve como la app. */
+
+:root{
+  --fondo:#0E0E0D;          /* comportaBackground, oscuro */
+  --tinta:#181812;          /* comportaInk */
+  --superficie:#1C1C1A;     /* comportaChip, oscuro */
+  --superficie-alta:#24241F;
+  --oliva:#A8B56B;          /* comportaPrimary, oscuro */
+  --oliva-hondo:#5F6B33;    /* el oliva de la marca: el umbral */
+  --oliva-tenue:#2A2F1A;    /* comportaPrimaryLight, oscuro */
+  --oliva-claro:#C6D08C;    /* comportaPrimaryDark, oscuro */
+  --crema:#EEF0E0;
+  --ambar:#E0A857;          /* comportaWarning, oscuro */
+  --texto:#F2F2EC;
+  --texto-2:#A1A19B;        /* comportaTextSecondary, oscuro */
+  --texto-3:#8C8C86;
+  --filete:rgba(255,255,255,.09);
+  --filete-fuerte:rgba(255,255,255,.16);
+
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",system-ui,"Segoe UI",Roboto,sans-serif;
+  --serif:ui-serif,"New York",Georgia,"Times New Roman",serif;
+
+  --ancho:1180px;
+  --margen:clamp(20px,5vw,48px);
+  --suave:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--fondo);color:var(--texto);
+  font:400 18px/1.55 var(--sans);letter-spacing:-.011em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+/* Grano fino sobre todo: le quita a la pantalla el negro plano de un fondo digital. */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--oliva);outline-offset:4px;border-radius:8px}
+::selection{background:var(--oliva);color:var(--tinta)}
+
+/* ---------- Barra ---------- */
+
+.barra{
+  position:sticky;top:0;z-index:20;
+  background:rgba(14,14,13,.72);
+  -webkit-backdrop-filter:saturate(1.4) blur(18px);backdrop-filter:saturate(1.4) blur(18px);
+  border-bottom:1px solid var(--filete);
+}
+/* Los saltos a una sección quedan bajo la barra, no tapados por ella. */
+section[id]{scroll-margin-top:64px}
+.barra-dentro{
+  max-width:var(--ancho);margin:0 auto;padding:0 var(--margen);
+  height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.marca{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--crema)}
+.marca-porton{width:34px;height:auto;overflow:visible}
+.marca-palabra{font:600 23px/1 var(--serif);letter-spacing:-.01em}
+.barra-nav{display:flex;gap:28px}
+.barra-nav a{
+  font-size:15px;color:var(--texto-2);text-decoration:none;
+  transition:color .2s ease;
+}
+.barra-nav a:hover{color:var(--texto)}
+
+/* ---------- Héroe ---------- */
+
+.heroe{
+  position:relative;
+  max-width:var(--ancho);margin:0 auto;padding:clamp(48px,8vh,96px) var(--margen) clamp(64px,10vh,120px);
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  align-items:center;gap:clamp(32px,5vw,80px);
+  min-height:min(calc(100svh - 64px),920px);
+}
+/* El halo oliva detrás del teléfono. */
+.heroe::before{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width:900px;height:900px;right:-260px;top:50%;transform:translateY(-50%);
+  background:radial-gradient(closest-side,rgba(168,181,107,.16),rgba(168,181,107,.05) 55%,transparent);
+}
+.heroe-titulo{
+  margin:0;font-weight:700;
+  font-size:clamp(68px,10.4vw,152px);line-height:.9;letter-spacing:-.058em;
+  color:var(--texto);
+}
+.heroe-bajada{
+  margin:clamp(24px,3vw,36px) 0 0;max-width:30ch;
+  font-size:clamp(19px,1.7vw,23px);line-height:1.45;letter-spacing:-.016em;color:var(--texto-2);
+}
+.acciones{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:clamp(28px,3.5vw,44px)}
+.nota{margin:18px 0 0;font-size:14px;color:var(--texto-3)}
+
+.tienda{
+  display:inline-flex;flex-direction:column;justify-content:center;
+  min-height:58px;padding:9px 26px 10px;border-radius:999px;
+  border:1px solid var(--filete-fuerte);background:rgba(255,255,255,.03);
+  color:var(--crema);text-decoration:none;line-height:1.1;
+}
+.tienda-arriba{font-size:12px;color:var(--texto-2);letter-spacing:0}
+.tienda-abajo{font-size:21px;font-weight:600;letter-spacing:-.02em}
+.tienda[aria-disabled="true"]{cursor:default}
+/* Con la dirección de la tienda puesta, deja de ser un aviso y pasa a ser el botón principal. */
+.tienda.lista{background:var(--oliva);border-color:var(--oliva);color:var(--tinta);transition:transform .2s var(--suave),background .2s ease}
+.tienda.lista .tienda-arriba{color:rgba(24,24,18,.7)}
+.tienda.lista:hover{background:var(--oliva-claro)}
+.tienda.lista:active{transform:scale(.97)}
+
+.enlace{
+  font-size:17px;font-weight:500;color:var(--oliva);
+  text-decoration:underline;text-decoration-color:rgba(168,181,107,.35);text-underline-offset:6px;
+  transition:text-decoration-color .2s ease;
+}
+.enlace:hover{text-decoration-color:var(--oliva)}
+
+.heroe-texto > *{animation:entra 1s var(--suave) both}
+.heroe-bajada{animation-delay:.08s}
+.acciones{animation-delay:.16s}
+.nota{animation-delay:.22s}
+.heroe-telefono{display:flex;justify-content:center;animation:sube 1.2s var(--suave) .15s both}
+@keyframes entra{from{opacity:0;transform:translateY(18px)}}
+@keyframes sube{from{opacity:0;transform:translateY(48px) scale(.97)}}
+
+/* ---------- El teléfono ---------- */
+
+.telefono{
+  --tw:320px;
+  position:relative;width:var(--tw);aspect-ratio:9/19.3;flex:none;
+  padding:11px;border-radius:56px;
+  background:linear-gradient(145deg,#3a3a34,#1b1b18 38%,#2c2c27 70%,#121210);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.14),
+    inset 0 0 0 3px #0a0a09,
+    0 50px 100px -30px rgba(0,0,0,.9),
+    0 30px 120px -40px rgba(168,181,107,.35);
+  /* --rx y --ry los mueve el puntero (portada.js); sin puntero fino quedan en cero. */
+  transform:perspective(1400px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) rotate(-2deg);
+  transition:transform .7s var(--suave);
+}
+.pantalla{
+  position:relative;height:100%;overflow:hidden;
+  border-radius:45px;background:var(--fondo);
+  font-size:calc(var(--tw) / 31);line-height:1.3;letter-spacing:-.01em;
+  padding:0 1.15em;color:var(--texto);
+}
+.p-estado{
+  display:flex;align-items:center;justify-content:space-between;
+  height:4.4em;padding:0 1.2em 0 1.6em;font-size:1.25em;font-weight:600;letter-spacing:0;
+}
+.p-estado > span:first-child{font-size:.95em}
+.p-isla{position:absolute;left:50%;top:.85em;transform:translateX(-50%);width:7.6em;height:2.25em;border-radius:2em;background:#000}
+.p-iconos{display:flex;gap:.4em;align-items:center}
+.p-iconos svg{height:.75em;width:auto;fill:currentColor}
+.p-iconos svg + svg{height:.85em}
+
+.p-cabecera{display:flex;align-items:center;justify-content:space-between;margin:.2em 0 1em;font-size:1.3em}
+.p-cabecera b{font-weight:600}
+.p-cabecera-lado{color:var(--oliva);min-width:3.2em}
+.p-mas{text-align:right;font-size:1.5em;line-height:1}
+
+.p-tarjeta{
+  background:var(--superficie);border:1px solid var(--filete);border-radius:1.7em;
+  padding:1.15em 1.2em;margin-bottom:.95em;
+}
+.p-oli{display:flex;align-items:center;gap:1em;padding:.8em 1.1em}
+.p-oli img{width:4.8em;height:4.8em;object-fit:contain;flex:none}
+.p-oli b{display:block;font-size:1.25em;font-weight:600;color:var(--oliva-claro)}
+.p-oli span{display:block;font-size:1em;color:var(--texto-2);margin-top:.15em}
+.p-progreso{display:block;height:.42em;border-radius:1em;background:var(--oliva-tenue);margin-top:.65em;overflow:hidden}
+.p-progreso i{display:block;height:100%;width:22%;border-radius:inherit;background:var(--oliva)}
+
+.p-racha-cabeza{display:flex;align-items:center;gap:.55em}
+.p-icono{width:1.7em;height:1.7em;color:var(--texto)}
+.p-racha-cabeza b{font-size:1.45em;font-weight:600;flex:1}
+.p-punto{display:inline-flex;align-items:center;gap:.45em;font-size:1.05em;font-weight:600;color:var(--ambar);transition:color .4s ease}
+.p-punto::before{content:"";width:.6em;height:.6em;border-radius:50%;background:currentColor}
+.p-punto-listo{color:var(--oliva)}
+
+.p-racha-cuerpo{display:flex;align-items:flex-end;justify-content:space-between;margin:.7em 0 .9em}
+.p-cifra{display:flex;align-items:baseline;gap:.25em;font-variant-numeric:tabular-nums}
+.p-cifra > span{font-size:4.6em;font-weight:700;line-height:1;letter-spacing:-.04em}
+.p-cifra small{font-size:1.45em;color:var(--texto-2)}
+.p-cifra-ventana{display:inline-block;height:1em;overflow:hidden}
+.p-cifra-rollo{display:flex;flex-direction:column;transition:transform .7s var(--suave)}
+.p-cifra-rollo span{height:1em}
+.p-semana{width:12.6em;height:auto;overflow:visible}
+.p-palotes line,.palotes-grandes line,.cinco line{stroke:var(--oliva);stroke-width:3.2;stroke-linecap:round}
+.p-hoy-pendiente{stroke-dasharray:3 4.6}
+.p-palotes .p-hoy-pendiente{stroke:var(--oliva-hondo)}
+.p-hoy{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .6s var(--suave)}
+.p-dias text{font:600 8.5px var(--sans);fill:var(--texto-3);text-anchor:middle}
+.p-dias .p-dia-hoy{fill:var(--texto)}
+
+.p-datos{display:grid;grid-template-columns:repeat(3,1fr);gap:.5em;border-top:1px solid var(--filete);padding-top:.85em}
+.p-datos small{display:block;font-size:.95em;color:var(--texto-2)}
+.p-datos b{display:block;font-size:1.2em;font-weight:600;margin-top:.15em;white-space:nowrap}
+.p-boton{
+  display:flex;align-items:center;justify-content:center;gap:.4em;
+  height:3.5em;margin-top:1em;border-radius:3em;
+  background:var(--oliva);color:var(--tinta);font-size:1.25em;font-weight:600;
+  transition:transform .25s var(--suave),background .4s ease,color .4s ease;
+}
+.p-boton svg{width:1.1em;height:1.1em}
+
+.p-resumen{display:block;font-size:1.35em;font-weight:600;margin:1.3em 0 .6em .2em}
+.p-grafico small{font-size:1em;color:var(--texto-2)}
+.p-barras{display:flex;align-items:flex-end;gap:.45em;height:6em;margin-top:.8em}
+.p-barras i{flex:1;height:var(--h);border-radius:.3em;background:var(--oliva);opacity:.85}
+.p-barras i:last-child{opacity:.45}
+
+/* Los dos estados de un mismo texto: antes y después de publicar. */
+.despues{display:none}
+.cumplido .antes{display:none}
+.cumplido .despues{display:inline-flex;align-items:center;gap:.35em}
+
+.p-aviso{
+  position:absolute;z-index:3;left:.7em;right:.7em;top:.7em;
+  display:flex;align-items:center;gap:.8em;padding:.85em 1em;border-radius:1.8em;
+  background:rgba(48,48,43,.82);
+  -webkit-backdrop-filter:blur(20px) saturate(1.5);backdrop-filter:blur(20px) saturate(1.5);
+  box-shadow:0 1em 3em rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.08);
+  transform:translateY(-140%);opacity:0;
+  transition:transform .8s var(--suave),opacity .5s ease;
+}
+.p-aviso img{width:3.1em;height:3.1em;border-radius:.75em;flex:none}
+.p-aviso div{flex:1;min-width:0}
+.p-aviso b{display:block;font-size:1.1em;font-weight:600}
+.p-aviso span{display:block;font-size:1.02em;color:var(--texto-2)}
+.p-aviso-hora{align-self:flex-start;font-size:.9em!important;color:var(--texto-3)!important}
+
+/* La secuencia: se presiona el botón, se marca el palote del viernes, la cifra sube y llega el aplauso. */
+.presiona .p-boton{transform:scale(.95)}
+.cumplido .p-hoy{stroke-dashoffset:0}
+.cumplido .p-cifra-rollo{transform:translateY(-1em)}
+.cumplido .p-racha .p-punto{color:var(--oliva)}
+.cumplido .p-racha .p-boton{background:var(--oliva-tenue);color:var(--oliva-claro)}
+.avisado .p-aviso{transform:none;opacity:1}
+
+/* ---------- Secciones ---------- */
+
+.seccion{max-width:var(--ancho);margin:0 auto;padding:clamp(88px,12vw,160px) var(--margen) 0}
+.titulo{
+  margin:0;font-weight:700;
+  font-size:clamp(42px,6vw,80px);line-height:.98;letter-spacing:-.05em;
+}
+.parrafo{margin:24px 0 0;max-width:34ch;font-size:clamp(19px,1.6vw,22px);line-height:1.45;color:var(--texto-2);letter-spacing:-.016em}
+
+/* Así funciona: tres pasos sobre el umbral, la línea que en el logo cruza completa. */
+.pasos{
+  --g:clamp(24px,3vw,48px);
+  list-style:none;margin:clamp(48px,6vw,80px) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g);
+  position:relative;
+}
+/* Une el centro del primer número con el del tercero. */
+.pasos::before{
+  content:"";position:absolute;height:1px;
+  top:calc(290px + 32px + 17px);left:17px;
+  width:calc((100% - 2 * var(--g)) * 2 / 3 + 2 * var(--g));
+  background:var(--oliva-hondo);
+}
+.paso{display:flex;flex-direction:column}
+.paso-visual{
+  height:290px;display:flex;align-items:center;justify-content:center;
+  border-radius:28px;background:linear-gradient(180deg,var(--superficie),rgba(28,28,26,.4));
+  border:1px solid var(--filete);overflow:hidden;
+}
+.paso-n{
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;margin:32px 0 18px;border-radius:50%;
+  border:1px solid var(--oliva-hondo);color:var(--oliva);font-size:15px;font-weight:600;
+  background:var(--fondo);position:relative;z-index:1;
+}
+.paso h3{margin:0;font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1.2}
+.paso p{margin:10px 0 0;max-width:30ch;color:var(--texto-2);font-size:17px}
+
+.metas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:82%}
+.meta{
+  position:relative;display:flex;align-items:flex-end;height:78px;padding:12px 14px;
+  border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--filete);
+  font-size:14.5px;font-weight:600;color:var(--texto);
+}
+.meta i{position:absolute;right:12px;top:12px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--texto-3)}
+.meta-elegida{background:var(--oliva-tenue);border-color:var(--oliva);color:var(--oliva-claro)}
+.meta-elegida i{border:none;background:var(--oliva);color:var(--tinta);display:flex;align-items:center;justify-content:center}
+.meta-elegida i svg{width:14px;height:14px}
+
+.foto{margin:0;width:min(58%,196px);background:var(--fondo);border-radius:20px;overflow:hidden;border:1px solid var(--filete);box-shadow:0 20px 50px -20px rgba(0,0,0,.8);transform:rotate(2.5deg)}
+.foto-quien{display:flex;align-items:center;gap:8px;padding:10px 12px;font-size:13px}
+.foto-quien b{font-weight:600}
+.foto-quien span:last-child{color:var(--texto-3)}
+.foto-imagen{
+  position:relative;aspect-ratio:1/1;
+  background:
+    radial-gradient(60% 60% at 70% 20%,rgba(224,168,87,.35),transparent 70%),
+    radial-gradient(70% 70% at 20% 90%,rgba(95,107,51,.75),transparent 70%),
+    linear-gradient(160deg,#4a5228,#2a2f1a);
+}
+.foto-imagen img{position:absolute;inset:12% 14% 4%;width:72%;height:84%;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(0,0,0,.35))}
+.foto-dia{position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:999px;background:rgba(14,14,13,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:12px;font-weight:600}
+.foto-pie{display:flex;align-items:center;gap:8px;padding:9px 12px;font-size:12px;color:var(--texto-2);white-space:nowrap}
+.foto-aplauso{font-weight:600;color:var(--texto)}
+/* El aplauso en gris: el emoji amarillo rompía la paleta. */
+.foto-aplauso,.aplausos{filter:grayscale(1)}
+
+.semana-falla{display:flex;flex-direction:column;align-items:center;gap:6px}
+.semana-grande{width:230px;height:auto;overflow:visible}
+.semana-grande .p-dias text{font-size:8px}
+.semana-grande .dia-falla{fill:var(--ambar)}
+.hueco{fill:var(--texto-3)}
+.semana-falla img{width:120px;height:120px;object-fit:contain;margin-top:-4px}
+
+.mono{
+  display:inline-flex;align-items:center;justify-content:center;flex:none;
+  width:28px;height:28px;border-radius:50%;
+  font-size:11px;font-weight:600;color:#fff;letter-spacing:0;
+}
+/* Los monogramas de la app: degradé de tono medio, familia tierra. */
+.mono-pizarra{background:linear-gradient(#6A8794,#4F6B78)}
+.mono-terracota{background:linear-gradient(#B26E4E,#9A5536)}
+.mono-musgo{background:linear-gradient(#718968,#576F4E)}
+.mono-ocre{background:linear-gradient(#A07A3F,#886227)}
+
+/* Amigos */
+.amigos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:center}
+.cinco{display:flex;align-items:center;gap:18px;margin-top:40px}
+.cinco svg{width:96px;height:auto;flex:none}
+.cinco p{margin:0;font-size:17px;color:var(--texto);max-width:22ch}
+.actividad{
+  list-style:none;margin:0;padding:8px 0;border-radius:28px;
+  background:linear-gradient(180deg,var(--superficie),rgba(28,28,26,.5));border:1px solid var(--filete);
+}
+.actividad li{display:flex;align-items:center;gap:14px;padding:16px 24px}
+.actividad li + li{border-top:1px solid var(--filete)}
+.actividad .mono{width:44px;height:44px;font-size:15px}
+.actividad div{flex:1;min-width:0}
+.actividad b{display:block;font-size:16.5px;font-weight:600}
+.actividad div span{display:block;font-size:15px;color:var(--texto-2)}
+.actividad time{font-size:13.5px;color:var(--texto-3);white-space:nowrap}
+.aplausos{
+  font-size:13.5px;font-weight:600;padding:6px 11px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1px solid var(--filete);white-space:nowrap;
+}
+
+/* Oli: tres etapas paradas sobre el mismo umbral, cada una más grande. */
+.oli{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px);align-items:end}
+.etapas{
+  list-style:none;margin:0;padding:0 0 0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:12px;
+  position:relative;
+}
+.etapas::after{
+  content:"";position:absolute;left:0;right:0;bottom:62px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--oliva-hondo) 12%,var(--oliva-hondo) 88%,transparent);
+}
+.etapa{display:flex;flex-direction:column;align-items:center;text-align:center}
+.etapa img{width:100%;height:auto;object-fit:contain;margin-bottom:8px}
+.etapa-1 img{max-width:56%}
+.etapa-2 img{max-width:74%}
+.etapa-3 img{max-width:92%}
+.etapa b{font-size:17px;font-weight:600;margin-top:10px}
+.etapa span{font-size:14px;color:var(--texto-2)}
+
+/* Cierre */
+.final{display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:clamp(96px,12vw,150px)}
+.final-oli{width:150px;height:auto;margin-bottom:20px}
+.final .parrafo{margin:20px auto 36px}
+
+/* Pie */
+.pie{border-top:1px solid var(--filete)}
+.pie-dentro{
+  max-width:var(--ancho);margin:0 auto;padding:32px var(--margen) calc(32px + env(safe-area-inset-bottom));
+  display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;
+}
+.marca-chica .marca-porton{width:26px}
+.marca-chica .marca-palabra{font-size:19px}
+.pie-nav{display:flex;flex-wrap:wrap;gap:8px 24px;margin-left:auto}
+.pie-nav a{font-size:15px;color:var(--texto-2);text-decoration:none}
+.pie-nav a:hover{color:var(--texto)}
+.pie-firma{margin:0;width:100%;font-size:13.5px;color:var(--texto-3)}
+
+/* ---------- Pantallas más chicas ---------- */
+
+@media (max-width:960px){
+  .heroe{grid-template-columns:1fr;min-height:0;padding-top:48px;gap:56px}
+  .heroe::before{right:auto;left:50%;top:auto;bottom:-120px;transform:translateX(-50%);width:640px;height:640px}
+  .heroe-telefono{justify-content:center}
+  .telefono{--tw:300px;transform:none}
+  .paso-visual{height:300px}
+  .pasos{grid-template-columns:1fr;gap:56px}
+  .pasos::before{display:none}
+  .amigos,.oli{grid-template-columns:1fr}
+  .oli{align-items:start}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .barra-nav{display:none}
+  .heroe{padding-top:36px}
+  .heroe-titulo{font-size:clamp(64px,19vw,96px)}
+  .acciones{gap:18px 24px}
+  .telefono{--tw:min(300px,82vw)}
+  .actividad li{padding:14px 16px;gap:12px}
+  .actividad .mono{width:38px;height:38px;font-size:13px}
+  .actividad time{display:none}
+  .etapas::after{bottom:58px}
+  .etapa b{font-size:15px}
+  .etapa span{font-size:12.5px;white-space:nowrap}
+  .pie-nav{margin-left:0}
+}
+
+/* ---------- Reducir movimiento ---------- */
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
