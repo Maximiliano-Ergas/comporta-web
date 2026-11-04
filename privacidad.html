@@ -8,11 +8,11 @@
 <div class="eyebrow">Comporta</div>
 <h1>Política de privacidad</h1>
 <p class="lede">Comporta es una app para cumplir metas con tus amigos: publicas la foto que prueba que cumpliste y ellos la ven. Esta página explica qué guardamos, quién lo ve y cómo lo borras.</p>
-<p class="fecha">Vigente desde 8 de septiembre de 2026 · Responsable: Maximiliano Ergas · Contacto: <a href="mailto:maxiergas12@gmail.com">maxiergas12@gmail.com</a></p>
+<p class="fecha">Vigente desde 4 de noviembre de 2026 · Responsable: Maximiliano Ergas · Contacto: <a href="mailto:maxiergas12@gmail.com">maxiergas12@gmail.com</a></p>
 
 <div class="falta">
   <h3>Esto todavía no lo revisó un abogado</h3>
-  <p>El texto describe con exactitud lo que la app hace hoy, y eso es lo que puede hacer solo. Lo que no puede es reemplazar una revisión legal: Comporta guarda <strong>fotos de personas</strong>, que es de las categorías más reguladas que existen. En Chile rige la Ley 21.719 y, si la app llega a Europa, el RGPD.</p>
+  <p>El texto describe con exactitud lo que la app hace hoy, y eso es lo que puede hacer solo. Lo que no puede es reemplazar una revisión legal: Comporta guarda <strong>fotos de personas</strong> y <strong>datos de salud</strong> —tu peso, lo que comes—, que son de las categorías más reguladas que existen. En Chile rige la Ley 21.719 y, si la app llega a Europa, el RGPD.</p>
   <p>Mientras Comporta se prueba entre amigos, esto sirve. Antes de abrirla al público conviene que alguien que sepa de derecho la lea.</p>
 </div>
 
@@ -31,7 +31,7 @@
   <h2>Qué guardamos</h2>
 
   <h3>Tu cuenta</h3>
-  <p>Tu correo, tu nombre, tu @usuario, tu descripción y el color de avatar que te tocó. Tu contraseña la guarda cifrada nuestro proveedor de autenticación: <strong>nosotros no la vemos ni la podemos recuperar</strong>, solo podemos mandarte un código para que la cambies.</p>
+  <p>Tu correo, tu nombre, tu @usuario, tu descripción, tu foto de perfil si pones una y el color de avatar que te tocó. Tu contraseña la guarda cifrada nuestro proveedor de autenticación: <strong>nosotros no la vemos ni la podemos recuperar</strong>, solo podemos mandarte un código para que la cambies.</p>
 
   <h3>Lo que publicas</h3>
   <p>Las fotos de tus metas cumplidas, sus descripciones, tus historias, tus comentarios y tus aplausos.</p>
@@ -45,6 +45,13 @@
   <h3>Tus entrenamientos</h3>
   <p>Tus rutinas, ejercicios, series, pesos y repeticiones. <strong>Solo tú los ves</strong>, salvo que publiques uno.</p>
 
+  <h3>Tu cuerpo</h3>
+  <p>El peso en ayunas y los pasos que anotas cada día en Rutina. <strong>Solo tú los ves.</strong></p>
+
+  <h3>Tus comidas y tu meta</h3>
+  <p>Si usas el contador de calorías: lo que comes —el nombre, la cantidad, sus calorías y nutrientes, y a qué comida del día corresponde—, el agua que tomas y los alimentos que ya usaste, para que no tengas que volver a buscarlos. Para calcular tu meta, tu sexo, edad, estatura, peso, nivel de actividad y objetivo; o, si lo prefieres, las metas que escribas tú. <strong>Solo tú los ves</strong>, salvo que compartas el resumen de un día como publicación.</p>
+  <p>El contador se apaga en Ajustes → Registro. Apagarlo esconde la página, pero no borra lo que ya anotaste.</p>
+
   <h3>Con quién te relacionas</h3>
   <p>Tus amistades y solicitudes, a quién bloqueaste y las denuncias que hagas. Las denuncias se guardan aunque el contenido denunciado se borre: si no, denunciar no serviría de nada.</p>
 </section>
@@ -54,10 +61,11 @@
   <p>Esto no lo decide la app al dibujar la pantalla: lo decide la base de datos, con reglas que se aplican a cada consulta.</p>
   <table>
     <tr><th>Qué</th><th>Quién lo ve</th></tr>
-    <tr><td>Tus fotos y publicaciones</td><td><strong>Solo tus amigos aceptados.</strong> Siempre, sin excepción y sin interruptor que lo cambie.</td></tr>
+    <tr><td>Las fotos de tus metas y tus publicaciones</td><td><strong>Solo tus amigos aceptados.</strong> Siempre, sin excepción y sin interruptor que lo cambie.</td></tr>
     <tr><td>Tus mensajes directos</td><td>Solo la persona a la que le escribes.</td></tr>
-    <tr><td>Tu nombre, @usuario, descripción, rachas visibles y % de cumplimiento</td><td>Tus amigos. Y, si tienes «Cuenta abierta» encendida en Ajustes, cualquiera con una cuenta que te busque.</td></tr>
+    <tr><td>Tu nombre, @usuario, foto de perfil, descripción, rachas visibles y % de cumplimiento</td><td>Tus amigos. Y, si tienes «Cuenta abierta» encendida en Ajustes, cualquiera con una cuenta que te busque.</td></tr>
     <tr><td>Tus entrenamientos</td><td>Solo tú, salvo que compartas uno como publicación.</td></tr>
+    <tr><td>Tu peso, tus pasos, tus comidas y tu meta</td><td><strong>Solo tú.</strong> El resumen de calorías de un día lo ven tus amigos solo si lo compartes como publicación.</td></tr>
     <tr><td>A quién bloqueaste</td><td>Solo tú. A la persona bloqueada no se le avisa.</td></tr>
   </table>
   <p>Si apagas «Cuenta abierta», dejas de aparecer en las búsquedas de quien no es tu amigo.</p>
@@ -65,7 +73,7 @@
 
 <section>
   <h2>Con quién trabajamos</h2>
-  <p>Dos proveedores, y esto es todo lo que recibe cada uno:</p>
+  <p>Tres proveedores, y esto es todo lo que recibe cada uno:</p>
   <div class="card">
     <h3>Supabase</h3>
     <p>Guarda la base de datos, las fotos y las cuentas. Es donde vive todo lo de arriba. Servidores en Virginia del Norte, Estados Unidos (Amazon Web Services, región <code>us-east-1</code>).</p>
@@ -73,6 +81,10 @@
   <div class="card">
     <h3>Brevo</h3>
     <p>Manda el correo con el código para recuperar tu contraseña. Recibe tu dirección de correo, solo cuando pides recuperarla.</p>
+  </div>
+  <div class="card">
+    <h3>Open Food Facts</h3>
+    <p>La base abierta de productos envasados que usa el contador de calorías. Cuando escaneas un envase o buscas un producto de marca, tu teléfono le pide los datos directamente: recibe <strong>el código de barras o lo que escribiste</strong>, y nada de tu cuenta. Como cualquier sitio web, ve la dirección IP desde la que se le pide. Es una asociación sin fines de lucro con sede en Francia.</p>
   </div>
 </section>
 
@@ -83,7 +95,7 @@
     <li><strong>Esconderte:</strong> apaga «Cuenta abierta» en Ajustes → Privacidad.</li>
     <li><strong>Borrar cosas sueltas:</strong> cualquier publicación, comentario o racha tuya.</li>
     <li><strong>Bloquear y denunciar:</strong> desde el perfil de la persona o desde su publicación.</li>
-    <li><strong>Borrar tu cuenta entera:</strong> Ajustes → Borrar mi cuenta. Se borra tu perfil, tus publicaciones, tus fotos, tus mensajes, tus rachas y tus entrenamientos. <strong>Es inmediato y no tiene vuelta atrás.</strong></li>
+    <li><strong>Borrar tu cuenta entera:</strong> Ajustes → Borrar mi cuenta. Se borra tu perfil, tus publicaciones, tus fotos, tus mensajes, tus rachas, tus entrenamientos, tu peso, tus pasos y tus comidas. <strong>Es inmediato y no tiene vuelta atrás.</strong></li>
     <li><strong>Pedir una copia:</strong> escríbenos a <a href="mailto:maxiergas12@gmail.com">maxiergas12@gmail.com</a> y te la mandamos.</li>
   </ul>
   <p>Lo que publicaste puede seguir existiendo en la copia que otra persona tenga descargada en su teléfono; eso no lo controla nadie, ni nosotros.</p>
@@ -111,7 +123,7 @@
 </section>
 
 <footer>
-  Comporta · Maximiliano Ergas · Última actualización: 8 de septiembre de 2026
+  Comporta · Maximiliano Ergas · Última actualización: 4 de noviembre de 2026
 </footer>
 
 </div></body></html>
