@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Comporta: un día a la vez</title>
-<meta name="description" content="Elige una meta, cúmplela y sube una foto. Tus amigos la ven, te aplauden y tu racha suma un día. Gratis, para iPhone.">
+<title>Comporta: compite con tus amigos</title>
+<meta name="description" content="Ponte una meta, cúmplela y sube la foto. Tus amigos ven lo que hiciste y lo que te propusiste. Gratis, para iPhone.">
 <meta name="theme-color" content="#0E0E0D">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
-<meta property="og:title" content="Comporta: un día a la vez">
-<meta property="og:description" content="Elige una meta, cúmplela y sube una foto. Tus amigos la ven y tu racha suma un día.">
+<meta property="og:title" content="Comporta: compite con tus amigos">
+<meta property="og:description" content="Ponte una meta, cúmplela y sube la foto. Tus amigos ven lo que hiciste y lo que te propusiste.">
 <meta property="og:image" content="https://maximiliano-ergas.github.io/comporta-web/img/icono-1024.png">
 <link rel="icon" href="img/porton.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/icono-180.png">
@@ -57,6 +57,7 @@
     <symbol id="libro" viewBox="0 0 24 24"><path d="M12 6.6C10 5.1 7 4.6 3.5 5.1v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5v-13C17 4.6 14 5.1 12 6.6zM12 6.6v13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
     <symbol id="pesa" viewBox="0 0 24 24"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="visto" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="candado" viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3M6 11h12v9H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   </defs>
 </svg>
 
@@ -67,9 +68,9 @@
       <span class="marca-palabra">Comporta</span>
     </a>
     <nav class="barra-nav" aria-label="Principal">
-      <a href="#como">Cómo funciona</a>
       <a href="#amigos">Amigos</a>
-      <a href="#oli">Oli</a>
+      <a href="#como">Cómo funciona</a>
+      <a href="#registro">Registro</a>
     </nav>
   </div>
 </header>
@@ -78,8 +79,8 @@
 
   <section class="heroe">
     <div class="heroe-texto">
-      <h1 class="heroe-titulo">Un día<br>a la vez.</h1>
-      <p class="heroe-bajada">Elige una meta, cúmplela y sube una foto. Tus amigos la ven, te aplauden y tu racha suma un día.</p>
+      <h1 class="heroe-titulo">Compite con tus amigos.</h1>
+      <p class="heroe-bajada">Ponte una meta, cúmplela y sube la foto. Tus amigos ven lo que hiciste y lo que te propusiste, y a ver quién la lleva.</p>
       <div class="acciones">
         <a class="tienda" data-tienda aria-disabled="true">
           <span class="tienda-arriba" data-tienda-arriba>Muy pronto en la</span>
@@ -197,33 +198,59 @@
     </div>
   </section>
 
+  <section class="seccion amigos" id="amigos">
+    <div class="amigos-texto">
+      <h2 class="titulo">Arma tu grupo y a ver quién la lleva.</h2>
+      <p class="parrafo">Agrega a tus amigos, mira sus rachas y cuánto cumplen, y aplaude cuando lo logran. Sin likes de desconocidos ni publicidad.</p>
+      <div class="cinco">
+        <svg viewBox="0 0 120 56" aria-hidden="true">
+          <line x1="14" y1="6" x2="8" y2="50"/><line x1="34" y1="6" x2="28" y2="50"/><line x1="54" y1="6" x2="48" y2="50"/><line x1="74" y1="6" x2="68" y2="50"/><line x1="94" y1="6" x2="88" y2="50"/>
+        </svg>
+        <p>Agrega a cinco que te conozcan de verdad.</p>
+      </div>
+    </div>
+    <ul class="actividad" aria-label="Ejemplo de lo que ves de tus amigos">
+      <li><span class="mono mono-pizarra" aria-hidden="true">MA</span><div><b>María A.</b><span>cumplió Entrenamiento</span></div><time>hace 2 h</time><span class="dias">21 días</span><span class="aplausos">👏 4</span></li>
+      <li><span class="mono mono-terracota" aria-hidden="true">CA</span><div><b>Carlos A.</b><span>cumplió Correr</span></div><time>hace 3 h</time><span class="dias">9 días</span><span class="aplausos">👏 2</span></li>
+      <li><span class="mono mono-musgo" aria-hidden="true">SB</span><div><b>Sofía B.</b><span>cumplió Estudio</span></div><time>hace 5 h</time><span class="dias">34 días</span><span class="aplausos">👏 6</span></li>
+      <li><span class="mono mono-ocre" aria-hidden="true">LR</span><div><b>Luis R.</b><span>cumplió Meditación</span></div><time>ayer</time><span class="dias dias-corta">4 días</span><span class="aplausos">👏 3</span></li>
+    </ul>
+  </section>
+
   <section class="seccion como" id="como">
-    <h2 class="titulo">Así funciona.</h2>
+    <h2 class="titulo">Lo que te propones, a la vista de todos.</h2>
     <ol class="pasos">
       <li class="paso">
         <div class="paso-visual">
           <div class="metas" aria-hidden="true">
-            <span class="meta">Entrenamiento<i></i></span>
-            <span class="meta meta-elegida">Lectura<i><svg><use href="#visto"/></svg></i></span>
-            <span class="meta">Correr<i></i></span>
+            <span class="meta meta-elegida">Entrenamiento<i><svg><use href="#visto"/></svg></i></span>
+            <span class="meta">Estudio<i></i></span>
             <span class="meta">Meditación<i></i></span>
+            <span class="meta">Dieta<i></i></span>
           </div>
         </div>
         <span class="paso-n" aria-hidden="true">1</span>
-        <h3>Elige una meta</h3>
-        <p>Algo simple: leer, entrenar, correr, meditar. Con una basta para empezar.</p>
+        <h3>Ponte una meta</h3>
+        <p>La que quieras: entrenar, estudiar, meditar, comer mejor o una que inventes tú.</p>
       </li>
       <li class="paso">
         <div class="paso-visual">
-          <figure class="foto" aria-hidden="true">
-            <div class="foto-quien"><span class="mono mono-terracota">CA</span><b>Carlos A.</b><span>Correr</span></div>
-            <div class="foto-imagen"><img src="img/oli-celebra.png" alt="" loading="lazy"><span class="foto-dia">Día 5</span></div>
-            <div class="foto-pie"><span class="foto-aplauso">👏 3</span><span>María y 2 más</span></div>
-          </figure>
+          <div class="fotos" aria-hidden="true">
+            <div class="historia">
+              <div class="historia-barras"><i class="vista"></i><i></i></div>
+              <div class="historia-quien"><span class="mono mono-musgo">SB</span><b>Sofía B.</b></div>
+              <span class="historia-meta">Estudio</span>
+            </div>
+            <figure class="foto">
+              <div class="foto-quien"><span class="mono mono-terracota">CA</span><b>Carlos A.</b><span>Correr</span></div>
+              <div class="foto-imagen"><img src="img/oli-celebra.png" alt="" loading="lazy"><span class="foto-dia">Día 5</span></div>
+              <div class="foto-pie"><span class="foto-aplauso">👏 3</span><span>María y 2 más</span></div>
+            </figure>
+          </div>
         </div>
         <span class="paso-n" aria-hidden="true">2</span>
-        <h3>Cúmplela y sube una foto</h3>
-        <p>La foto es la prueba. Cada día con foto suma a tu racha.</p>
+        <h3>Cúmplela y sube la foto</h3>
+        <p>Como publicación o como historia. Cada día con foto suma a tu racha y deja marcada tu constancia.</p>
       </li>
       <li class="paso">
         <div class="paso-visual">
@@ -245,47 +272,72 @@
           </div>
         </div>
         <span class="paso-n" aria-hidden="true">3</span>
-        <h3>¿Fallaste un día?</h3>
-        <p>No pasa nada. Vuelve al día siguiente: tu mejor racha queda guardada.</p>
+        <h3>Tus amigos lo ven</h3>
+        <p>Lo que hiciste y lo que te faltó. Con ellos mirando, saltarte un día ya no es tan fácil.</p>
       </li>
     </ol>
   </section>
 
-  <section class="seccion amigos" id="amigos">
-    <div class="amigos-texto">
-      <h2 class="titulo">Comporta es con amigos.</h2>
-      <p class="parrafo">Tus amigos ven tu foto cuando cumples y te aplauden. Sin likes de desconocidos, sin publicidad y sin feed infinito.</p>
-      <div class="cinco">
-        <svg viewBox="0 0 120 56" aria-hidden="true">
-          <line x1="14" y1="6" x2="8" y2="50"/><line x1="34" y1="6" x2="28" y2="50"/><line x1="54" y1="6" x2="48" y2="50"/><line x1="74" y1="6" x2="68" y2="50"/><line x1="94" y1="6" x2="88" y2="50"/>
-        </svg>
-        <p>Agrega a cinco que te conozcan de verdad.</p>
+  <section class="seccion registro" id="registro">
+    <div class="registro-texto">
+      <h2 class="titulo">Anota tus series y supera la vez pasada.</h2>
+      <p class="parrafo">Ejercicios, series, repeticiones y pesos. Cada vez que entrenas te muestra lo que hiciste la vez anterior, para que sepas cuánto subir.</p>
+      <p class="remate">Al terminar, lo publicas y tus amigos lo ven.</p>
+    </div>
+    <div class="entreno" data-entreno role="img" aria-label="Un entrenamiento en Comporta. En Press banca la vez pasada fueron 80 kilos por 8, 8 y 7. Al confirmar la tercera serie, el volumen pasa de 1.320 a 1.960 kilos y dice Superado.">
+      <div class="entreno-cabeza" aria-hidden="true"><b>Upper 1</b><span>Hoy</span></div>
+      <div class="ejercicio" aria-hidden="true">
+        <div class="ej-titulo"><b>Press banca</b><span class="ej-volumen"><span class="antes">1.320</span><span class="despues">1.960</span> kg</span></div>
+        <div class="ej-pasada">La vez pasada <b>80 kg × 8, 8, 7</b><span class="ej-cuando"><span class="antes">Hace 7 días</span><span class="despues ej-superado">Superado</span></span></div>
+        <div class="serie"><span class="serie-n lista">1</span><span class="serie-campo">82,5</span><span class="serie-x">×</span><span class="serie-campo">8</span><span class="serie-ant"><small>ant</small>80×8</span></div>
+        <div class="serie"><span class="serie-n lista">2</span><span class="serie-campo">82,5</span><span class="serie-x">×</span><span class="serie-campo">8</span><span class="serie-ant"><small>ant</small>80×8</span></div>
+        <div class="serie"><span class="serie-n serie-n-ultima">3</span><span class="serie-campo">80</span><span class="serie-x">×</span><span class="serie-campo">8</span><span class="serie-ant"><small>ant</small>80×7</span></div>
+      </div>
+      <div class="ejercicio ejercicio-siguiente" aria-hidden="true">
+        <div class="ej-titulo"><b>Remo con barra</b></div>
+        <div class="ej-pasada">La vez pasada <b>60 kg × 10, 9</b><span class="ej-cuando">Hace 7 días</span></div>
+        <div class="serie"><span class="serie-n">1</span><span class="serie-campo">60</span><span class="serie-x">×</span><span class="serie-campo">10</span><span class="serie-ant"><small>ant</small>60×10</span></div>
       </div>
     </div>
-    <ul class="actividad" aria-label="Ejemplo de lo que ves de tus amigos">
-      <li><span class="mono mono-pizarra" aria-hidden="true">MA</span><div><b>María A.</b><span>cumplió Entrenamiento</span></div><time>hace 2 h</time><span class="aplausos">👏 4</span></li>
-      <li><span class="mono mono-terracota" aria-hidden="true">CA</span><div><b>Carlos A.</b><span>cumplió Correr</span></div><time>hace 3 h</time><span class="aplausos">👏 2</span></li>
-      <li><span class="mono mono-musgo" aria-hidden="true">SB</span><div><b>Sofía B.</b><span>cumplió Lectura</span></div><time>hace 5 h</time><span class="aplausos">👏 6</span></li>
-      <li><span class="mono mono-ocre" aria-hidden="true">LR</span><div><b>Luis R.</b><span>cumplió Madrugada</span></div><time>ayer</time><span class="aplausos">👏 3</span></li>
-    </ul>
   </section>
 
-  <section class="seccion oli" id="oli">
-    <div class="oli-texto">
-      <h2 class="titulo">Oli crece con tu racha.</h2>
-      <p class="parrafo">Tu mejor racha decide su etapa. Si un día fallas, Oli no retrocede.</p>
+  <section class="seccion cuerpo" id="cuerpo">
+    <div class="cuerpo-texto">
+      <h2 class="titulo">Pasos y peso, si te sirven.</h2>
+      <p class="parrafo">Anota tu peso en ayunas y tus pasos del día, y mira cómo van en un gráfico. Solo los ves tú.</p>
+      <p class="remate">¿No te interesan? Se apagan con un botón.</p>
     </div>
-    <ol class="etapas">
-      <li class="etapa etapa-1"><img src="img/oli-etapa-1.png" alt="" loading="lazy"><b>Empieza</b><span>Día 1</span></li>
-      <li class="etapa etapa-2"><img src="img/oli-etapa-2.png" alt="" loading="lazy"><b>Toma ritmo</b><span>7 días seguidos</span></li>
-      <li class="etapa etapa-3"><img src="img/oli-etapa-3.png" alt="" loading="lazy"><b>Se fortalece</b><span>30 días seguidos</span></li>
-    </ol>
+    <div class="cuerpo-visual" role="img" aria-label="La tarjeta Tu cuerpo: peso en ayunas 72,4 kilos y 8.412 pasos del día, solo para ti. Debajo, los interruptores de Ajustes que la apagan.">
+      <div class="tarjeta-cuerpo" aria-hidden="true">
+        <div class="tc-cabeza"><b>Tu cuerpo</b><span class="tc-privado"><svg><use href="#candado"/></svg>Solo lo ves tú</span><span class="tc-mas">···</span></div>
+        <div class="tc-mitades">
+          <div class="tc-mitad">
+            <small>Peso en ayunas</small>
+            <div class="tc-cifra">72,4<span>kg</span></div>
+            <small>Último: 72,8 kg, ayer</small>
+            <svg class="tc-linea" viewBox="0 0 140 40"><polyline points="2,12 12,10 22,14 32,13 42,17 52,15 62,19 72,18 82,22 92,21 102,25 112,24 122,27 134,29"/><circle cx="134" cy="29" r="3.2"/></svg>
+          </div>
+          <div class="tc-mitad">
+            <small>Pasos del día</small>
+            <div class="tc-cifra">8.412</div>
+            <small>Promedio 7 días: 7.960</small>
+            <div class="tc-barras"><i style="--h:62%"></i><i style="--h:80%"></i><i style="--h:45%"></i><i style="--h:90%"></i><i style="--h:70%"></i><i style="--h:58%"></i><i class="hoy" style="--h:84%"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="ajustes" aria-hidden="true">
+        <small class="ajustes-titulo">Ajustes · Rutina</small>
+        <div class="ajuste"><span>Peso en ayunas</span><i class="interruptor"></i></div>
+        <div class="ajuste"><span>Pasos del día</span><i class="interruptor"></i></div>
+      </div>
+    </div>
   </section>
 
   <section class="seccion final">
     <img class="final-oli" src="img/oli-recibe.png" alt="Oli, la mascota de Comporta, con los brazos abiertos" loading="lazy">
-    <h2 class="titulo">Tu racha empieza hoy.</h2>
-    <p class="parrafo" data-final-nota>Comporta llega pronto a la App Store. Es gratis y es para iPhone.</p>
+    <h2 class="titulo">Fallar da lata.<br>Más si todos lo ven.</h2>
+    <p class="parrafo">Metas, fotos y entrenamientos, juntos en una red social wellness con tus amigos.</p>
+    <p class="parrafo final-nota" data-final-nota>Comporta llega pronto a la App Store. Es gratis y es para iPhone.</p>
     <a class="tienda" data-tienda aria-disabled="true">
       <span class="tienda-arriba" data-tienda-arriba>Muy pronto en la</span>
       <span class="tienda-abajo">App Store</span>

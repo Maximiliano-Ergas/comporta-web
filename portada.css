@@ -307,6 +307,29 @@ section[id]{scroll-margin-top:64px}
 /* El aplauso en gris: el emoji amarillo rompía la paleta. */
 .foto-aplauso,.aplausos{filter:grayscale(1)}
 
+/* Publicación e historia: la historia vertical asoma detrás de la foto cuadrada. */
+.fotos{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.fotos .foto{position:relative;z-index:1;width:min(50%,172px);margin-left:84px}
+.historia{
+  position:absolute;left:calc(50% - 144px);top:50%;width:108px;aspect-ratio:9/16;
+  transform:translateY(-50%) rotate(-6deg);border-radius:16px;overflow:hidden;
+  border:1px solid var(--filete);box-shadow:0 20px 50px -20px rgba(0,0,0,.8);
+  background:
+    radial-gradient(70% 45% at 35% 30%,rgba(238,240,224,.16),transparent 70%),
+    linear-gradient(170deg,#4F6B78,#26343A);
+}
+.historia-barras{display:flex;gap:3px;padding:8px 8px 0}
+.historia-barras i{flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,.35)}
+.historia-barras .vista{background:#fff}
+.historia-quien{display:flex;align-items:center;gap:6px;padding:7px 8px;font-size:10.5px}
+.historia-quien .mono{width:20px;height:20px;font-size:8px}
+.historia-quien b{font-weight:600}
+.historia-meta{
+  position:absolute;left:50%;bottom:20%;transform:translateX(-50%);
+  padding:4px 10px;border-radius:999px;background:rgba(14,14,13,.45);
+  font-size:11px;font-weight:600;white-space:nowrap;
+}
+
 .semana-falla{display:flex;flex-direction:column;align-items:center;gap:6px}
 .semana-grande{width:230px;height:auto;overflow:visible}
 .semana-grande .p-dias text{font-size:8px}
@@ -341,34 +364,87 @@ section[id]{scroll-margin-top:64px}
 .actividad b{display:block;font-size:16.5px;font-weight:600}
 .actividad div span{display:block;font-size:15px;color:var(--texto-2)}
 .actividad time{font-size:13.5px;color:var(--texto-3);white-space:nowrap}
+/* La racha de cada uno, con el punto de la app: oliva desde 7 días, ámbar antes. */
+.dias{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dias::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--oliva)}
+.dias-corta::before{background:var(--ambar)}
 .aplausos{
   font-size:13.5px;font-weight:600;padding:6px 11px;border-radius:999px;
   background:rgba(255,255,255,.05);border:1px solid var(--filete);white-space:nowrap;
 }
 
-/* Oli: tres etapas paradas sobre el mismo umbral, cada una más grande. */
-.oli{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px);align-items:end}
-.etapas{
-  list-style:none;margin:0;padding:0 0 0;
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:12px;
-  position:relative;
+/* Registro y cuerpo: el texto a un lado y la pantalla de la app al otro, como Amigos. */
+.registro,.cuerpo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:center}
+.cuerpo-visual{order:-1}
+.remate{margin:28px 0 0;max-width:30ch;font-size:clamp(19px,1.6vw,22px);font-weight:600;line-height:1.35;letter-spacing:-.016em;color:var(--texto)}
+
+/* El entrenamiento: las tarjetas de Rutina, con la vez pasada en cada ejercicio. */
+.entreno{
+  padding:20px;border-radius:28px;
+  background:linear-gradient(180deg,var(--superficie),rgba(28,28,26,.5));border:1px solid var(--filete);
 }
-.etapas::after{
-  content:"";position:absolute;left:0;right:0;bottom:62px;height:2px;border-radius:2px;
-  background:linear-gradient(90deg,transparent,var(--oliva-hondo) 12%,var(--oliva-hondo) 88%,transparent);
+.entreno-cabeza{display:flex;align-items:baseline;justify-content:space-between;padding:4px 6px 16px}
+.entreno-cabeza b{font-size:22px;font-weight:700;letter-spacing:-.025em}
+.entreno-cabeza span{font-size:14px;color:var(--texto-3)}
+.ejercicio{padding:18px 18px 16px;border-radius:22px;background:var(--superficie-alta);border:1px solid var(--filete)}
+.ejercicio + .ejercicio{margin-top:12px}
+.ejercicio-siguiente{opacity:.5}
+.ej-titulo{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ej-titulo b{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.ej-volumen{font-size:15px;font-weight:600;color:var(--oliva);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ej-pasada{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;margin:8px 0 6px;font-size:14px;color:var(--texto-2)}
+.ej-pasada b{font-weight:600;color:var(--texto);font-variant-numeric:tabular-nums}
+.ej-cuando{margin-left:auto;color:var(--texto-3)}
+.ej-superado{color:var(--oliva);font-weight:600}
+.serie{display:grid;grid-template-columns:28px minmax(0,1fr) 12px minmax(0,1fr) 56px;align-items:center;gap:10px;margin-top:10px}
+.serie-n{
+  display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;
+  border:1.5px solid var(--texto-3);font-size:13px;font-weight:600;color:var(--texto-2);
+  transition:background .4s ease,border-color .4s ease,color .4s ease;
 }
-.etapa{display:flex;flex-direction:column;align-items:center;text-align:center}
-.etapa img{width:100%;height:auto;object-fit:contain;margin-bottom:8px}
-.etapa-1 img{max-width:56%}
-.etapa-2 img{max-width:74%}
-.etapa-3 img{max-width:92%}
-.etapa b{font-size:17px;font-weight:600;margin-top:10px}
-.etapa span{font-size:14px;color:var(--texto-2)}
+.serie-n.lista,.superado .serie-n-ultima{background:var(--oliva);border-color:var(--oliva);color:var(--tinta)}
+.serie-campo{display:flex;align-items:center;justify-content:center;height:40px;border-radius:12px;background:rgba(255,255,255,.06);font-size:17px;font-variant-numeric:tabular-nums}
+.serie-x{text-align:center;font-size:14px;color:var(--texto-3)}
+.serie-ant{text-align:right;font-size:13px;line-height:1.15;color:var(--ambar);font-variant-numeric:tabular-nums;white-space:nowrap}
+.serie-ant small{display:block;font-size:11px}
+/* Al confirmar la tercera serie, el volumen pasa al de la vez pasada y la fecha cambia a «Superado». */
+.superado .antes{display:none}
+.superado .despues{display:inline}
+
+/* Tu cuerpo: la tarjeta de arriba de Rutina y los interruptores de Ajustes que la apagan. */
+.cuerpo-visual{display:flex;flex-direction:column;gap:14px}
+.tarjeta-cuerpo{padding:22px 22px 20px;border-radius:28px;background:var(--superficie);border:1px solid var(--filete-fuerte)}
+.tc-cabeza{display:flex;align-items:center;gap:12px}
+.tc-cabeza b{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.tc-privado{display:inline-flex;align-items:center;gap:5px;font-size:14px;color:var(--texto-2);white-space:nowrap}
+.tc-privado svg{width:14px;height:14px}
+.tc-mas{margin-left:auto;font-size:20px;line-height:1;color:var(--texto-2);letter-spacing:.05em}
+.tc-mitades{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-top:18px}
+.tc-mitad{display:flex;flex-direction:column;gap:4px;min-width:0}
+.tc-mitad:first-child{padding-right:20px}
+.tc-mitad + .tc-mitad{padding-left:20px;border-left:1px solid var(--filete-fuerte)}
+.tc-mitad small{font-size:13.5px;color:var(--texto-2)}
+.tc-cifra{font-size:40px;font-weight:700;line-height:1.1;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.tc-cifra span{margin-left:4px;font-size:18px;font-weight:600;letter-spacing:0;color:var(--texto-2)}
+/* El peso va en gris, sin verde ni rojo: la app no sabe si bajar es lo bueno. */
+.tc-linea{width:100%;height:auto;margin-top:12px;overflow:visible}
+.tc-linea polyline{fill:none;stroke:var(--texto-2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tc-linea circle{fill:var(--texto)}
+.tc-barras{display:flex;align-items:flex-end;gap:5px;height:40px;margin-top:12px}
+.tc-barras i{flex:1;height:var(--h);border-radius:3px;background:rgba(255,255,255,.18)}
+.tc-barras .hoy{background:var(--texto)}
+.ajustes{padding:8px 0;border-radius:22px;background:var(--superficie);border:1px solid var(--filete)}
+.ajustes-titulo{display:block;padding:8px 20px 4px;font-size:13px;color:var(--texto-3)}
+.ajuste{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;font-size:16px}
+.ajuste + .ajuste{border-top:1px solid var(--filete)}
+.interruptor{position:relative;flex:none;width:51px;height:31px;border-radius:999px;background:var(--oliva)}
+.interruptor::after{content:"";position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
 
 /* Cierre */
 .final{display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:clamp(96px,12vw,150px)}
 .final-oli{width:150px;height:auto;margin-bottom:20px}
-.final .parrafo{margin:20px auto 36px}
+.final .parrafo{margin:20px auto 0}
+.final .final-nota{margin:12px auto 36px;max-width:none;font-size:17px;color:var(--texto-3)}
 
 /* Pie */
 .pie{border-top:1px solid var(--filete)}
@@ -393,8 +469,8 @@ section[id]{scroll-margin-top:64px}
   .paso-visual{height:300px}
   .pasos{grid-template-columns:1fr;gap:56px}
   .pasos::before{display:none}
-  .amigos,.oli{grid-template-columns:1fr}
-  .oli{align-items:start}
+  .amigos,.registro,.cuerpo{grid-template-columns:1fr}
+  .cuerpo-visual{order:0}
 }
 @media (max-width:640px){
   body{font-size:17px}
@@ -406,10 +482,20 @@ section[id]{scroll-margin-top:64px}
   .actividad li{padding:14px 16px;gap:12px}
   .actividad .mono{width:38px;height:38px;font-size:13px}
   .actividad time{display:none}
-  .etapas::after{bottom:58px}
-  .etapa b{font-size:15px}
-  .etapa span{font-size:12.5px;white-space:nowrap}
+  .entreno{padding:14px}
+  .entreno-cabeza{padding:4px 6px 12px}
+  .ejercicio{padding:16px 14px 14px}
+  .ej-pasada{font-size:13.5px}
+  .serie{grid-template-columns:28px minmax(0,1fr) 10px minmax(0,1fr) 48px;gap:8px}
+  .tarjeta-cuerpo{padding:18px 16px}
+  .tc-cifra{font-size:34px}
+  .tc-mitad:first-child{padding-right:14px}
+  .tc-mitad + .tc-mitad{padding-left:14px}
   .pie-nav{margin-left:0}
+}
+/* En un iPhone no caben la meta, la racha y el aplauso en la misma fila: se queda la racha. */
+@media (max-width:430px){
+  .actividad .aplausos{display:none}
 }
 
 /* ---------- Reducir movimiento ---------- */
